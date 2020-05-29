@@ -76,4 +76,30 @@ namespace Kopakabana
             }
         }
     }
+    public class MeczDwaOgnie : Mecz
+    {
+        public MeczDwaOgnie(DruzynaDwaOgnie d1, DruzynaDwaOgnie d2, Sedzia sglowny)
+        {
+            Druzyna1 = d1;
+            Druzyna2 = d2;
+            SedziaGlowny = sglowny;
+        }
+        public override void Play()
+        {
+            Random r = new Random();
+            int x = r.Next() % 2;
+            if (x == 0)
+            {
+                Zwyciezca = Druzyna1;
+                PunktyUzyskaneZwyciezcy = 20;
+                PunktyUtraconeZwyciezcy = r.Next() % 20;
+            }
+            else
+            {
+                Zwyciezca = Druzyna2;
+                PunktyUzyskaneZwyciezcy = 20;
+                PunktyUtraconeZwyciezcy = r.Next() % 20;
+            }
+        }
+    }
 }
