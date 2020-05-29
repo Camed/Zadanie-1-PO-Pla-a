@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,10 +8,10 @@ namespace Kopakabana
 {
     public static class FileManagement
     {
-        private const string sedziowiePath = "/data/sedziowie.txt";               // 1 sędzia - 1 linia, każda linia wygląda tak: SType Imie Nazwisko
-        private const string siatkowkaPath = "/data/siatkowka.txt";               // nazwy druzyn siatkowki
-        private const string dwaOgniePath  = "/data/dwaognie.txt";                // nazwy druzyn w dwa ognie
-        private const string linaPath      = "/data/lina.txt";                    // nazwy druzyn w przeciaganie liny
+        private const string sedziowiePath = "/data/sedziowie.txt";                // 1 sędzia - 1 linia, każda linia wygląda tak: SType Imie Nazwisko
+        private const string siatkowkaPath = "/data/siatkowka.txt";                // nazwy druzyn siatkowki
+        private const string dwaOgniePath = "/data/dwaognie.txt";                  // nazwy druzyn w dwa ognie
+        private const string linaPath = "/data/lina.txt";                          // nazwy druzyn w przeciaganie liny
 
         /// <summary>
         /// Wczytywanie sedziow z plikow
@@ -20,7 +19,7 @@ namespace Kopakabana
         private static void loadSedziowie()
         {
             string[] input = File.ReadAllLines(sedziowiePath);
-            foreach(var s in input)
+            foreach (var s in input)
             {
                 var x = s.Split(' ');
                 string type = x[0];
@@ -40,10 +39,195 @@ namespace Kopakabana
                 }
             }
         }
-        
+
         /// <summary>
         /// Wczytywanie druzyn siatkowki z plikow
         /// </summary>
-       
+        private static void loadSiatkowka()
+        {
+            string[] input;
+            try
+            {
+                input = File.ReadAllLines(siatkowkaPath);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            foreach (var s in input)
+            {
+                Listy.DruzynySiatkowki.Add(new DruzynaSiatkowka(s));
+            }
+        }
+
+
+        /// <summary>
+        /// Wczytywanie druzyn w dwa ognie z plikow
+        /// </summary>
+        private static void loadOgnie()
+        {
+            string[] input;
+            try
+            {
+                input = File.ReadAllLines(dwaOgniePath);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            foreach (var s in input)
+            {
+                Listy.DruzynyDwaOgnie.Add(new DruzynaDwaOgnie(s));
+            }
+        }
+
+
+        /// <summary>
+        /// Wczytywanie druzyn w przeciaganie liny z plikow
+        /// </summary>
+        private static void loadLina()
+        {
+            string[] input;
+            try
+            {
+                input = File.ReadAllLines(linaPath);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            foreach (var s in input)
+            {
+                Listy.DruzynyLina.Add(new DruzynaLina(s));
+            }
+        }
+
+
+        /// <summary>
+        /// Zapisywanie wszystkich sedziow do pliku
+        /// </summary>
+        private static void saveSedziowie()
+        {
+            try
+            {
+                File.Delete(sedziowiePath);
+                File.Create(sedziowiePath);
+                string[] sedziowie = new string[Listy.SedziowieDwaOgnie.Count() + Listy.SedziowieLina.Count() + Listy.SedziowieSiatkowki.Count()];
+                int iter = 0;
+                foreach (var x in Listy.SedziowieDwaOgnie)
+                {
+                    sedziowie[iter] = string.Format("dwaognie {0} {1}", x.Imie, x.Nazwisko);
+                    iter++;
+                }
+                foreach (var x in Listy.SedziowieLina)
+                {
+                    sedziowie[iter] = string.Format("lina {0} {1}", x.Imie, x.Nazwisko);
+                    iter++;
+                }
+                foreach (var x in Listy.SedziowieSiatkowki)
+                {
+                    sedziowie[iter] = string.Format("siatkowka {0} {1}", x.Imie, x.Nazwisko);
+                }
+
+                File.WriteAllLines(sedziowiePath, sedziowie);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        /// <summary>
+        /// Zapisywanie druzyn siatkowki do pliku
+        /// </summary>
+        private static void saveSiatkowka()
+        {
+            try
+            {
+                File.Delete(siatkowkaPath);
+                File.Create(siatkowkaPath);
+
+                File.WriteAllLines(siatkowkaPath, from x in Listy.DruzynySiatkowki select x.Nazwa);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Zapisywanie druzyn w dwa ognie do pliku
+        /// </summary>
+        private static void saveOgnie()
+        {
+            try
+            {
+                File.Delete(dwaOgniePath);
+                File.Create(dwaOgniePath);
+
+                File.WriteAllLines(dwaOgniePath, from x in Listy.DruzynyDwaOgnie select x.Nazwa);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Zapisywanie druzyn w przeciaganie liny do pliku
+        /// </summary>
+        private static void saveLina()
+        {
+            try
+            {
+                File.Delete(linaPath);
+                File.Create(linaPath);
+
+                File.WriteAllLines(linaPath, from x in Listy.DruzynyLina select x.Nazwa);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        /// <summary>
+        /// Zapisywanie wszystkich danych
+        /// </summary>
+        public static void SaveToFiles()
+        {
+            try
+            {
+                saveSedziowie();
+                saveOgnie();
+                saveSiatkowka();
+                saveLina();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        /// <summary>
+        /// Wczytywanie wszystkich danych
+        /// </summary>
+        public static void LoadFromFiles()
+        {
+            try
+            {
+                loadSedziowie();
+                loadSiatkowka();
+                loadLina();
+                loadOgnie();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
