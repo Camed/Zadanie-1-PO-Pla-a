@@ -7,6 +7,12 @@ namespace Kopakabana
     /// </summary>
     public abstract class Druzyna
     {
+        public string Nazwa { get; protected set; }
+        
+        public Druzyna(string nazwa)
+        {
+            Nazwa = nazwa;
+        }
         public virtual void PokazDruzyne()
         {
             MessageBox.Show("Oto druzyna!");
@@ -21,6 +27,10 @@ namespace Kopakabana
 
     public class DruzynaSiatkowka : Druzyna
     {
+        public DruzynaSiatkowka(string nazwa) : base(nazwa)
+        {
+            Nazwa = nazwa;
+        }
         public override void PokazDruzyne()
         {
             MessageBox.Show("Oto druzyna siatkowki!");
@@ -33,6 +43,10 @@ namespace Kopakabana
     /// </summary>
     public class DruzynaLina : Druzyna
     {
+        public DruzynaLina(string nazwa) : base(nazwa)
+        {
+            Nazwa = nazwa;
+        }
         public override void PokazDruzyne()
         {
             MessageBox.Show("Oto druzyna w przeciagnie liny!");
@@ -44,6 +58,10 @@ namespace Kopakabana
     /// </summary>
     public class DruzynaDwaOgnie : Druzyna
     {
+        public DruzynaDwaOgnie(string nazwa) : base(nazwa)
+        {
+            Nazwa = nazwa;
+        }
         public override void PokazDruzyne()
         {
             MessageBox.Show("Oto druzyna w dwa ognie!");
