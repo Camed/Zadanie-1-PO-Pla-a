@@ -40,7 +40,7 @@ namespace Kopakabana
         }
         public List<Druzyna> Top4()
         {
-
+            
             return druzyna;
         }
     }
