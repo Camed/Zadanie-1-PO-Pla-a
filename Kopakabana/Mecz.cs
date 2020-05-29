@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Kopakabana
 {
-    public abstract class Mecz
+    public abstract class Mecz // bruh
     {
         public Druzyna Druzyna1 { get; protected set; }
         public Druzyna Druzyna2 { get; protected set; }
