@@ -49,6 +49,9 @@
     <Compile Include="Druzyna.cs" />
     <Compile Include="FileManagement.cs" />
     <Compile Include="Finaly.cs" />
+    <Compile Include="FinDwaOgnie.cs" />
+    <Compile Include="FinPrzeciaganieLiny.cs" />
+    <Compile Include="FinSiatka.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
