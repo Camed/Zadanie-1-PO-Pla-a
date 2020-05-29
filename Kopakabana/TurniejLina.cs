@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Kopakabana
 {
-    class TurniejLina   
+    class TurniejLina : Turniej
     {
         public TurniejLina(List<Druzyna> druzyna, List<Sedzia> sedzie)
         {
             this.druzyna = druzyna;
             this.sedzie = sedzie;
         }
-        public void Start()
+        public override void Start()
         {
             for (int i = 0; i < druzyna.Count(); i++)
             {
