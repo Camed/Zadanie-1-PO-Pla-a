@@ -23,13 +23,24 @@ namespace Kopakabana
             {
                 for(int j = i; j < druzyna.Count(); j++)
                 {
-
+                    if(druzyna is DruzynaSiatkowka)
+                    {
+                        mecze.Add(new MeczSiatkowki((DruzynaSiatkowka)druzyna[i], (DruzynaSiatkowka)druzyna[j], sedzie[0], sedzie[1], sedzie[2]));
+                    }
+                    else if(druzyna is DruzynaDwaOgnie)
+                    {
+                        mecze.Add(new MeczDwaOgnie((DruzynaDwaOgnie)druzyna[i], (DruzynaDwaOgnie)druzyna[j], sedzie[0]));
+                    }
+                    else
+                        mecze.Add(new MeczPrzeciaganieLiny((DruzynaLina)druzyna[i], (DruzynaLina)druzyna[j], sedzie[0]));
                 }
             }
+            foreach (var x in mecze)
+                x.Play();
         }
         public List<Druzyna> Top4()
         {
-
+            
             return druzyna;
         }
     }
