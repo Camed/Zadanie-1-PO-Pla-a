@@ -50,4 +50,30 @@ namespace Kopakabana
             }
         }
     }
+    public class MeczPrzeciaganieLiny : Mecz
+    {
+        public MeczPrzeciaganieLiny(DruzynaLina d1, DruzynaLina d2, Sedzia sglowny)
+        {
+            Druzyna1 = d1;
+            Druzyna2 = d2;
+            SedziaGlowny = sglowny;
+        }
+        public override void Play()
+        {
+            Random r = new Random();
+            int x = r.Next() % 2;
+            if (x == 0)
+            {
+                Zwyciezca = Druzyna1;
+                PunktyUzyskaneZwyciezcy = 3;
+                PunktyUtraconeZwyciezcy = r.Next() % 3;
+            }
+            else
+            {
+                Zwyciezca = Druzyna2;
+                PunktyUzyskaneZwyciezcy = 3;
+                PunktyUtraconeZwyciezcy = r.Next() % 3;
+            }
+        }
+    }
 }
