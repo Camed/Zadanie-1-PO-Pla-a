@@ -7,12 +7,13 @@ using System.Windows.Forms;
 
 namespace Kopakabana
 {
-    public abstract class Mecz // bruh
+    public abstract class Mecz
     {
         public Druzyna Druzyna1 { get; protected set; }
         public Druzyna Druzyna2 { get; protected set; }
         public Druzyna Zwyciezca { get; protected set; }
-        
+        public Druzyna Przegrany { get; protected set; }
+
         public Sedzia SedziaGlowny { get; protected set; }
         public int PunktyUzyskaneZwyciezcy { get; protected set; }
         public int PunktyUtraconeZwyciezcy { get; protected set; }
@@ -39,12 +40,14 @@ namespace Kopakabana
             if(x == 0)
             {
                 Zwyciezca = Druzyna1;
+                Przegrany = Druzyna2;
                 PunktyUzyskaneZwyciezcy = 25;
                 PunktyUtraconeZwyciezcy = r.Next() % 24;
             }
             else
             {
                 Zwyciezca = Druzyna2;
+                Przegrany = Druzyna1;
                 PunktyUzyskaneZwyciezcy = 25;
                 PunktyUtraconeZwyciezcy = r.Next() % 24;
             }
@@ -65,12 +68,14 @@ namespace Kopakabana
             if (x == 0)
             {
                 Zwyciezca = Druzyna1;
+                Przegrany = Druzyna2;
                 PunktyUzyskaneZwyciezcy = 3;
                 PunktyUtraconeZwyciezcy = r.Next() % 3;
             }
             else
             {
                 Zwyciezca = Druzyna2;
+                Przegrany = Druzyna1;
                 PunktyUzyskaneZwyciezcy = 3;
                 PunktyUtraconeZwyciezcy = r.Next() % 3;
             }
@@ -91,12 +96,14 @@ namespace Kopakabana
             if (x == 0)
             {
                 Zwyciezca = Druzyna1;
+                Przegrany = Druzyna2;
                 PunktyUzyskaneZwyciezcy = 20;
                 PunktyUtraconeZwyciezcy = r.Next() % 20;
             }
             else
             {
                 Zwyciezca = Druzyna2;
+                Przegrany = Druzyna1;
                 PunktyUzyskaneZwyciezcy = 20;
                 PunktyUtraconeZwyciezcy = r.Next() % 20;
             }

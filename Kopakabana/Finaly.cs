@@ -41,7 +41,10 @@ namespace Kopakabana
             m1.Play();
             m2 = new MeczSiatkowki(d3, d4, s[3], s[4], s[5]);
             m2.Play();
-            m3= new MeczSiatkowki(m1.Zwyciezca,m2.Zwyciezca, s[0], s[1], s[2])
+            m3 = new MeczSiatkowki((DruzynaSiatkowka)m1.Zwyciezca, (DruzynaSiatkowka)m2.Zwyciezca, s[0], s[1], s[2]);
+            m4 = new MeczSiatkowki((DruzynaSiatkowka)m1.Przegrany, (DruzynaSiatkowka)m2.Przegrany, s[3], s[4], s[5]));
+            m3.Play();
+            m4.Play();
             
 
         }
