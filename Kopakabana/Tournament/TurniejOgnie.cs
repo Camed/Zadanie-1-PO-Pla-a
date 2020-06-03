@@ -42,16 +42,13 @@ namespace Kopakabana
                 zlicz[zw] = new WygraneiPunkty(zlicz[zw].wygrane + 1, zlicz[zw].punkty + y.PunktyUzyskaneZwyciezcy);
                 zlicz[zp] = new WygraneiPunkty(zlicz[zp].wygrane, zlicz[zp].punkty + y.PunktyUtraconeZwyciezcy);
             }
-            var x = zlicz.ToList();
-
-            x.OrderByDescending(a => a.Value.wygrane).ThenByDescending(a => a.Value.punkty);
+            var n = zlicz.ToList().OrderByDescending(a => a.Value.wygrane).ThenByDescending(a => a.Value.punkty);
 
             List<DruzynaDwaOgnie> odp = new List<DruzynaDwaOgnie>();
-            odp.Add(x[0].Key);
-            odp.Add(x[1].Key);
-            odp.Add(x[2].Key);
-            odp.Add(x[3].Key);
-
+            foreach (var t in n)
+            {
+                odp.Add(t.Key);
+            }
             return odp;
         }
     }
