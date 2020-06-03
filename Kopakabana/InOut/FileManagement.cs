@@ -230,7 +230,6 @@ namespace Kopakabana
                 fs = File.Create(linaPath);
                 fs.Close(); fs.Dispose();
             }
-            Thread.Sleep(1000);
             LoadFromFiles();
         }
 
