@@ -8,18 +8,18 @@ namespace Kopakabana
 {
     class TurniejOgnie : Turniej
     {
-        public TurniejOgnie(List<Druzyna> druzyna, List<Sedzia> sedzie)
+        public TurniejOgnie(List<Druzyna> druzyny, List<Sedzia> sedzie)
         {
-            this.druzyna = druzyna;
+            this.druzyny = druzyny;
             this.sedzie = sedzie;
         }
         public override void Start()
         {
-            for (int i = 0; i < druzyna.Count(); i++)
+            for (int i = 0; i < druzyny.Count(); i++)
             {
-                for (int j = i; j < druzyna.Count(); j++)
+                for (int j = i; j < druzyny.Count(); j++)
                 {
-                    mecze.Add(new MeczDwaOgnie((DruzynaDwaOgnie)druzyna[i], (DruzynaDwaOgnie)druzyna[j], sedzie[0]));
+                    mecze.Add(new MeczDwaOgnie((DruzynaDwaOgnie)druzyny[i], (DruzynaDwaOgnie)druzyny[j], sedzie[0]));
                 }
             }
             foreach (var x in mecze)
@@ -28,7 +28,7 @@ namespace Kopakabana
         public List<Druzyna> Top4()
         {
 
-            return druzyna;
+            return druzyny;
         }
     }
 }
