@@ -14,6 +14,7 @@ namespace Kopakabana
     public partial class Form1 : Form
     {
         private TurniejSiatkowka ts;
+        private TurniejOgnie tog;
         private TurniejLina tl;
         public Form1()
         {
@@ -489,30 +490,51 @@ namespace Kopakabana
 
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void startOgnieTopka_Click(object sender, EventArgs e)
         {
+                if (Listy.SedziowieDwaOgnie.Count < 2) MessageBox.Show($"Zbyt malo sedziow! Dodaj {2 - Listy.SedziowieDwaOgnie.Count} sedziow/ego!");
+                else
+                {
+                    startOgnieFinal.Enabled = true;
+                    tog = new TurniejOgnie(Listy.DruzynyDwaOgnie, Listy.SedziowieDwaOgnie);
+                    tog.Start();
+                    foreach (var x in tog.mecze)
+                    {
+                        historyTeamDwaOgnie.Items.Add($"{x.Druzyna1.Nazwa}|{x.Druzyna2.Nazwa}");
+                    }
+
+                    foreach (var x in tog.Top4())
+                    {
+                        teamListDwaOgnie.Items.Add(x.Nazwa);
+                    }
+                }
+        }
+
+        private void historyTeamDwaOgnie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string match = historyTeamDwaOgnie.SelectedItem.ToString();
+            string d1 = match.Split('|')[0];
+            string d2 = match.Split('|')[1];
+
+            foreach (var x in tog.mecze)
+            {
+                if (x.Druzyna1.Nazwa == d1 && x.Druzyna2.Nazwa == d2)
+                {
+                    wynikBoxOgnie.Text = $"Zwyciezca: {x.Zwyciezca.Nazwa} {x.PunktyUzyskaneZwyciezcy}:{x.PunktyUtraconeZwyciezcy}\r\nSedzia: {x.SedziaGlowny.Imie} {x.SedziaGlowny.Nazwisko}\r\n";
+                }
+            }
+        }
+
+        private void startOgnieFinal_Click(object sender, EventArgs e)
+        {
+            var x = tog.Top4();
+            FinDwaOgnie finOgnie = new FinDwaOgnie(x[0], x[1], x[2], x[3], Listy.SedziowieDwaOgnie);
+            var results = finOgnie.Start();
+            finalyOgnieResults.Text = $"Zwyciezca:\r\n\t{results[0].Nazwa}\r\n\r\nDrugie miejsce:\r\n\t{results[1].Nazwa}\r\n\r\nTrzecie miejsce:\r\n\t{results[2].Nazwa}\r\n\r\nCzwarte miejsce:\r\n\t{results[3].Nazwa}";
 
         }
 
-        private void listSedziowieLina_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listSedziowieSiatkowka_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void historyTeamLina_SelectedIndexChanged(object sender, EventArgs e)
         {
