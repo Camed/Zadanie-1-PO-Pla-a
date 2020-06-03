@@ -88,13 +88,16 @@
             this.teamListDwaOgnie = new System.Windows.Forms.ListBox();
             this.historyTeamDwaOgnie = new System.Windows.Forms.ListBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-
             this.finalyLinaResults = new System.Windows.Forms.TextBox();
             this.startLinaFinal = new System.Windows.Forms.Button();
             this.wynikBoxLina = new System.Windows.Forms.TextBox();
             this.startLina = new System.Windows.Forms.Button();
             this.teamListLina = new System.Windows.Forms.ListBox();
             this.historyTeamLina = new System.Windows.Forms.ListBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -569,7 +572,6 @@
             // finalySiatkaResults
             // 
             this.finalySiatkaResults.Enabled = false;
-
             this.finalySiatkaResults.Location = new System.Drawing.Point(401, 58);
             this.finalySiatkaResults.Multiline = true;
             this.finalySiatkaResults.Name = "finalySiatkaResults";
@@ -644,6 +646,8 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.label9);
+            this.tabPage5.Controls.Add(this.label10);
             this.tabPage5.Controls.Add(this.finalyOgnieResults);
             this.tabPage5.Controls.Add(this.startOgnieFinal);
             this.tabPage5.Controls.Add(this.wynikBoxOgnie);
@@ -698,9 +702,6 @@
             this.startOgnieTopka.UseVisualStyleBackColor = true;
             this.startOgnieTopka.Click += new System.EventHandler(this.startOgnieTopka_Click);
             // 
-            // 
-    
-            // 
             // teamListDwaOgnie
             // 
             this.teamListDwaOgnie.FormattingEnabled = true;
@@ -708,8 +709,6 @@
             this.teamListDwaOgnie.Name = "teamListDwaOgnie";
             this.teamListDwaOgnie.Size = new System.Drawing.Size(183, 264);
             this.teamListDwaOgnie.TabIndex = 10;
-            // 
-
             // 
             // historyTeamDwaOgnie
             // 
@@ -722,6 +721,8 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.label11);
+            this.tabPage6.Controls.Add(this.label12);
             this.tabPage6.Controls.Add(this.finalyLinaResults);
             this.tabPage6.Controls.Add(this.startLinaFinal);
             this.tabPage6.Controls.Add(this.wynikBoxLina);
@@ -777,8 +778,6 @@
             this.startLina.UseVisualStyleBackColor = true;
             this.startLina.Click += new System.EventHandler(this.startLina_Click);
             // 
-            
-            // 
             // teamListLina
             // 
             this.teamListLina.FormattingEnabled = true;
@@ -786,9 +785,6 @@
             this.teamListLina.Name = "teamListLina";
             this.teamListLina.Size = new System.Drawing.Size(183, 264);
             this.teamListLina.TabIndex = 10;
-            // 
-            // 
-            
             // 
             // historyTeamLina
             // 
@@ -798,6 +794,42 @@
             this.historyTeamLina.Size = new System.Drawing.Size(183, 264);
             this.historyTeamLina.TabIndex = 8;
             this.historyTeamLina.SelectedIndexChanged += new System.EventHandler(this.historyTeamLina_SelectedIndexChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(9, 12);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(108, 13);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Tabela (wyzej - lepiej)";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(211, 12);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(42, 13);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Historia";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 12);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(108, 13);
+            this.label11.TabIndex = 17;
+            this.label11.Text = "Tabela (wyzej - lepiej)";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(208, 12);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(42, 13);
+            this.label12.TabIndex = 16;
+            this.label12.Text = "Historia";
             // 
             // Form1
             // 
@@ -895,6 +927,10 @@
         private System.Windows.Forms.ListBox teamListLina;
         private System.Windows.Forms.ListBox historyTeamLina;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
     }
 }
 
