@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kopakabana.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,21 +36,20 @@ namespace Kopakabana
 
         public override void Play()
         {
-            Random r = new Random();
-            int x = r.Next() % 2;
+            int x = Utility.random.Next() % 2;
             if(x == 0)
             {
                 Zwyciezca = Druzyna1;
                 Przegrany = Druzyna2;
                 PunktyUzyskaneZwyciezcy = 25;
-                PunktyUtraconeZwyciezcy = r.Next() % 24;
+                PunktyUtraconeZwyciezcy = Utility.random.Next() % 24;
             }
             else
             {
                 Zwyciezca = Druzyna2;
                 Przegrany = Druzyna1;
                 PunktyUzyskaneZwyciezcy = 25;
-                PunktyUtraconeZwyciezcy = r.Next() % 24;
+                PunktyUtraconeZwyciezcy = Utility.random.Next() % 24;
             }
         }
     }
@@ -63,21 +63,20 @@ namespace Kopakabana
         }
         public override void Play()
         {
-            Random r = new Random();
-            int x = r.Next() % 2;
+            int x = Utility.random.Next() % 2;
             if (x == 0)
             {
                 Zwyciezca = Druzyna1;
                 Przegrany = Druzyna2;
                 PunktyUzyskaneZwyciezcy = 3;
-                PunktyUtraconeZwyciezcy = r.Next() % 3;
+                PunktyUtraconeZwyciezcy = Utility.random.Next() % 3;
             }
             else
             {
                 Zwyciezca = Druzyna2;
                 Przegrany = Druzyna1;
                 PunktyUzyskaneZwyciezcy = 3;
-                PunktyUtraconeZwyciezcy = r.Next() % 3;
+                PunktyUtraconeZwyciezcy = Utility.random.Next() % 3;
             }
         }
     }
@@ -91,21 +90,20 @@ namespace Kopakabana
         }
         public override void Play()
         {
-            Random r = new Random();
-            int x = r.Next() % 2;
+            int x = Utility.random.Next() % 2;
             if (x == 0)
             {
                 Zwyciezca = Druzyna1;
                 Przegrany = Druzyna2;
                 PunktyUzyskaneZwyciezcy = 20;
-                PunktyUtraconeZwyciezcy = r.Next() % 20;
+                PunktyUtraconeZwyciezcy = Utility.random.Next() % 20;
             }
             else
             {
                 Zwyciezca = Druzyna2;
                 Przegrany = Druzyna1;
                 PunktyUzyskaneZwyciezcy = 20;
-                PunktyUtraconeZwyciezcy = r.Next() % 20;
+                PunktyUtraconeZwyciezcy = Utility.random.Next() % 20;
             }
         }
     }

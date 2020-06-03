@@ -9,9 +9,9 @@ using System.Xml;
 
 namespace Kopakabana
 {
-    class TurniejLina : Turniej
+    class TurniejLina : Turniej<DruzynaLina, MeczPrzeciaganieLiny>
     {
-        public TurniejLina(List<Druzyna> druzyny, List<Sedzia> sedzie)
+        public TurniejLina(List<DruzynaLina> druzyny, List<Sedzia> sedzie)
         {
             this.druzyny = druzyny;
             this.sedzie = sedzie;

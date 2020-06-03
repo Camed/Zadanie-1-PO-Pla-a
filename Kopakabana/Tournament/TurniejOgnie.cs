@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace Kopakabana
 {
-    class TurniejOgnie : Turniej
+    class TurniejOgnie : Turniej<DruzynaDwaOgnie, MeczDwaOgnie>
     {
-        public TurniejOgnie(List<Druzyna> druzyny, List<Sedzia> sedzie)
+        public TurniejOgnie(List<DruzynaDwaOgnie> druzyny, List<Sedzia> sedzie)
         {
             this.druzyny = druzyny;
             this.sedzie = sedzie;
@@ -20,7 +20,7 @@ namespace Kopakabana
             {
                 for (int j = i + 1; j < druzyny.Count(); j++)
                 {
-                    mecze.Add(new MeczDwaOgnie((DruzynaDwaOgnie)druzyny[i], (DruzynaDwaOgnie)druzyny[j], sedzie[0]));
+                    mecze.Add(new MeczDwaOgnie(druzyny[i], druzyny[j], sedzie[0]));
                 }
             }
             foreach (var x in mecze)

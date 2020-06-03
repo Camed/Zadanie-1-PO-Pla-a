@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Druzyna.cs" />
+    <Compile Include="Entities\Utility.cs" />
     <Compile Include="InOut\FileManagement.cs" />
     <Compile Include="Finals\Finaly.cs" />
     <Compile Include="Finals\FinDwaOgnie.cs" />

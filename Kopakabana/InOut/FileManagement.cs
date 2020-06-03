@@ -31,8 +31,10 @@ namespace Kopakabana
         private static void loadSedziowie()
         {
             string[] input = File.ReadAllLines(sedziowiePath);
+
             foreach (var s in input)
             {
+                if (s.Length == 0 || s.Length == 1) continue; 
                 var x = s.Split(' ');
                 string type = x[0];
                 string imie = x[1];
@@ -68,6 +70,7 @@ namespace Kopakabana
             }
             foreach (var s in input)
             {
+                if (s.Length == 0 || s.Length == 1) continue;
                 Listy.DruzynySiatkowki.Add(new DruzynaSiatkowka(s));
             }
         }
@@ -89,6 +92,7 @@ namespace Kopakabana
             }
             foreach (var s in input)
             {
+                if (s.Length == 0 || s.Length == 1) continue;
                 Listy.DruzynyDwaOgnie.Add(new DruzynaDwaOgnie(s));
             }
         }
@@ -110,6 +114,7 @@ namespace Kopakabana
             }
             foreach (var s in input)
             {
+                if (s.Length == 0 || s.Length == 1) continue;
                 Listy.DruzynyLina.Add(new DruzynaLina(s));
             }
         }
@@ -123,7 +128,9 @@ namespace Kopakabana
             try
             {
                 File.Delete(sedziowiePath);
-                File.Create(sedziowiePath);
+                FileStream fs = File.Create(sedziowiePath);
+                fs.Close(); fs.Dispose();
+
                 string[] sedziowie = new string[Listy.SedziowieDwaOgnie.Count() + Listy.SedziowieLina.Count() + Listy.SedziowieSiatkowki.Count()];
                 int iter = 0;
                 foreach (var x in Listy.SedziowieDwaOgnie)
@@ -139,6 +146,7 @@ namespace Kopakabana
                 foreach (var x in Listy.SedziowieSiatkowki)
                 {
                     sedziowie[iter] = string.Format("siatkowka {0} {1}", x.Imie, x.Nazwisko);
+                    iter++;
                 }
 
                 File.WriteAllLines(sedziowiePath, sedziowie);
@@ -158,7 +166,8 @@ namespace Kopakabana
             try
             {
                 File.Delete(siatkowkaPath);
-                File.Create(siatkowkaPath);
+                FileStream fs = File.Create(siatkowkaPath);
+                fs.Close(); fs.Dispose();
 
                 File.WriteAllLines(siatkowkaPath, from x in Listy.DruzynySiatkowki select x.Nazwa);
             }
@@ -176,7 +185,8 @@ namespace Kopakabana
             try
             {
                 File.Delete(dwaOgniePath);
-                File.Create(dwaOgniePath);
+                FileStream fs = File.Create(dwaOgniePath);
+                fs.Close(); fs.Dispose();
 
                 File.WriteAllLines(dwaOgniePath, from x in Listy.DruzynyDwaOgnie select x.Nazwa);
             }
@@ -194,7 +204,8 @@ namespace Kopakabana
             try
             {
                 File.Delete(linaPath);
-                File.Create(linaPath);
+                FileStream fs = File.Create(linaPath);
+                fs.Close(); fs.Dispose();
 
                 File.WriteAllLines(linaPath, from x in Listy.DruzynyLina select x.Nazwa);
             }
