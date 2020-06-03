@@ -14,6 +14,7 @@ namespace Kopakabana
     public partial class Form1 : Form
     {
         private TurniejSiatkowka ts;
+        private TurniejLina tl;
         public Form1()
         {
             InitializeComponent();
@@ -443,10 +444,97 @@ namespace Kopakabana
             finalySiatkaResults.Text = $"Zwyciezca:\r\n\t{results[0].Nazwa}\r\n\r\nDrugie miejsce:\r\n\t{results[1].Nazwa}\r\n\r\nTrzecie miejsce:\r\n\t{results[2].Nazwa}\r\n\r\nCzwarte miejsce:\r\n\t{results[3].Nazwa}";
 
         }
+        private void startLina_Click(object sender, EventArgs e)
+        {
+            if (Listy.SedziowieLina.Count < 2) MessageBox.Show($"Zbyt malo sedziow! Dodaj {2 - Listy.SedziowieLina.Count} sedziow/ego!");
+            else
+            {
+                startLinaFinal.Enabled = true;
+                tl = new TurniejLina(Listy.DruzynyLina, Listy.SedziowieLina);
+                tl.Start();
+                foreach (var x in tl.mecze)
+                {
+                    historyTeamLina.Items.Add($"{x.Druzyna1.Nazwa}|{x.Druzyna2.Nazwa}");
+                }
 
-        private void label8_Click(object sender, EventArgs e)
+                foreach (var x in tl.Top4())
+                {
+                    teamListLina.Items.Add(x.Nazwa);
+                }
+            }
+        }
+
+        private void TextSedziowieOgnie_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void TextSedziowieLina_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextSedziowieSiatkowka_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listSedziowieOgnie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listSedziowieLina_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listSedziowieSiatkowka_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void historyTeamLina_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string match = historyTeamLina.SelectedItem.ToString();
+            string d1 = match.Split('|')[0];
+            string d2 = match.Split('|')[1];
+
+            foreach (var x in tl.mecze)
+            {
+                if (x.Druzyna1.Nazwa == d1 && x.Druzyna2.Nazwa == d2)
+                {
+                    wynikBoxLina.Text = $"Zwyciezca: {x.Zwyciezca.Nazwa} {x.PunktyUzyskaneZwyciezcy}:{x.PunktyUtraconeZwyciezcy}\r\nSedzia glowny: {x.SedziaGlowny.Imie} {x.SedziaGlowny.Nazwisko}\r\n";
+                }
+            }
+        }
+
+        private void startLinaFinal_Click(object sender, EventArgs e)
+        {
+            var x = tl.Top4();
+            FinPrzeciaganieLiny fl = new FinPrzeciaganieLiny(x[0], x[1], x[2], x[3], Listy.SedziowieLina);
+            var results = fl.Start();
+            finalyLinaResults.Text = $"Zwyciezca:\r\n\t{results[0].Nazwa}\r\n\r\nDrugie miejsce:\r\n\t{results[1].Nazwa}\r\n\r\nTrzecie miejsce:\r\n\t{results[2].Nazwa}\r\n\r\nCzwarte miejsce:\r\n\t{results[3].Nazwa}";
         }
     }
 }

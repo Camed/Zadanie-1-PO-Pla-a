@@ -50,6 +50,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.listSiatkowka = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
             this.showSedziaOgnie = new System.Windows.Forms.Button();
             this.removeSedziaOgnie = new System.Windows.Forms.Button();
             this.addSedziaOgnie = new System.Windows.Forms.Button();
@@ -71,6 +72,7 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.finalySiatkaResults = new System.Windows.Forms.TextBox();
             this.startSiatkowkaFinal = new System.Windows.Forms.Button();
             this.wynikBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -80,13 +82,21 @@
             this.historyTeamSiatkowka = new System.Windows.Forms.ListBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.finalySiatkaResults = new System.Windows.Forms.TextBox();
+            this.finalyLinaResults = new System.Windows.Forms.TextBox();
+            this.startLinaFinal = new System.Windows.Forms.Button();
+            this.wynikBoxLina = new System.Windows.Forms.TextBox();
+            this.startLina = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.teamListLina = new System.Windows.Forms.ListBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.historyTeamLina = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.tabPage6.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -307,6 +317,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button2);
             this.tabPage2.Controls.Add(this.showSedziaOgnie);
             this.tabPage2.Controls.Add(this.removeSedziaOgnie);
             this.tabPage2.Controls.Add(this.addSedziaOgnie);
@@ -333,9 +344,19 @@
             this.tabPage2.Text = "Sedziowie";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(594, 334);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 50);
+            this.button2.TabIndex = 34;
+            this.button2.Text = "Zapisz zmiany";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.saveChangesButton_Click);
+            // 
             // showSedziaOgnie
             // 
-            this.showSedziaOgnie.Location = new System.Drawing.Point(508, 338);
+            this.showSedziaOgnie.Location = new System.Drawing.Point(464, 335);
             this.showSedziaOgnie.Name = "showSedziaOgnie";
             this.showSedziaOgnie.Size = new System.Drawing.Size(61, 23);
             this.showSedziaOgnie.TabIndex = 33;
@@ -345,7 +366,7 @@
             // 
             // removeSedziaOgnie
             // 
-            this.removeSedziaOgnie.Location = new System.Drawing.Point(575, 338);
+            this.removeSedziaOgnie.Location = new System.Drawing.Point(531, 335);
             this.removeSedziaOgnie.Name = "removeSedziaOgnie";
             this.removeSedziaOgnie.Size = new System.Drawing.Size(57, 23);
             this.removeSedziaOgnie.TabIndex = 32;
@@ -355,7 +376,7 @@
             // 
             // addSedziaOgnie
             // 
-            this.addSedziaOgnie.Location = new System.Drawing.Point(441, 338);
+            this.addSedziaOgnie.Location = new System.Drawing.Point(397, 335);
             this.addSedziaOgnie.Name = "addSedziaOgnie";
             this.addSedziaOgnie.Size = new System.Drawing.Size(61, 23);
             this.addSedziaOgnie.TabIndex = 31;
@@ -365,7 +386,7 @@
             // 
             // showSedziaLina
             // 
-            this.showSedziaLina.Location = new System.Drawing.Point(311, 338);
+            this.showSedziaLina.Location = new System.Drawing.Point(267, 335);
             this.showSedziaLina.Name = "showSedziaLina";
             this.showSedziaLina.Size = new System.Drawing.Size(61, 23);
             this.showSedziaLina.TabIndex = 30;
@@ -375,7 +396,7 @@
             // 
             // removeSedziaLina
             // 
-            this.removeSedziaLina.Location = new System.Drawing.Point(378, 338);
+            this.removeSedziaLina.Location = new System.Drawing.Point(334, 335);
             this.removeSedziaLina.Name = "removeSedziaLina";
             this.removeSedziaLina.Size = new System.Drawing.Size(57, 23);
             this.removeSedziaLina.TabIndex = 29;
@@ -385,7 +406,7 @@
             // 
             // addSedziaLina
             // 
-            this.addSedziaLina.Location = new System.Drawing.Point(244, 338);
+            this.addSedziaLina.Location = new System.Drawing.Point(200, 335);
             this.addSedziaLina.Name = "addSedziaLina";
             this.addSedziaLina.Size = new System.Drawing.Size(61, 23);
             this.addSedziaLina.TabIndex = 28;
@@ -395,7 +416,7 @@
             // 
             // showSedziaSiat
             // 
-            this.showSedziaSiat.Location = new System.Drawing.Point(114, 338);
+            this.showSedziaSiat.Location = new System.Drawing.Point(70, 335);
             this.showSedziaSiat.Name = "showSedziaSiat";
             this.showSedziaSiat.Size = new System.Drawing.Size(61, 23);
             this.showSedziaSiat.TabIndex = 27;
@@ -405,31 +426,34 @@
             // 
             // TextSedziowieOgnie
             // 
-            this.TextSedziowieOgnie.Location = new System.Drawing.Point(441, 367);
+            this.TextSedziowieOgnie.Location = new System.Drawing.Point(397, 364);
             this.TextSedziowieOgnie.MaxLength = 128;
             this.TextSedziowieOgnie.Name = "TextSedziowieOgnie";
             this.TextSedziowieOgnie.Size = new System.Drawing.Size(191, 20);
             this.TextSedziowieOgnie.TabIndex = 26;
+            this.TextSedziowieOgnie.TextChanged += new System.EventHandler(this.TextSedziowieOgnie_TextChanged);
             // 
             // TextSedziowieLina
             // 
-            this.TextSedziowieLina.Location = new System.Drawing.Point(244, 367);
+            this.TextSedziowieLina.Location = new System.Drawing.Point(200, 364);
             this.TextSedziowieLina.MaxLength = 128;
             this.TextSedziowieLina.Name = "TextSedziowieLina";
             this.TextSedziowieLina.Size = new System.Drawing.Size(191, 20);
             this.TextSedziowieLina.TabIndex = 25;
+            this.TextSedziowieLina.TextChanged += new System.EventHandler(this.TextSedziowieLina_TextChanged);
             // 
             // TextSedziowieSiatkowka
             // 
-            this.TextSedziowieSiatkowka.Location = new System.Drawing.Point(47, 367);
+            this.TextSedziowieSiatkowka.Location = new System.Drawing.Point(3, 364);
             this.TextSedziowieSiatkowka.MaxLength = 128;
             this.TextSedziowieSiatkowka.Name = "TextSedziowieSiatkowka";
             this.TextSedziowieSiatkowka.Size = new System.Drawing.Size(191, 20);
             this.TextSedziowieSiatkowka.TabIndex = 24;
+            this.TextSedziowieSiatkowka.TextChanged += new System.EventHandler(this.TextSedziowieSiatkowka_TextChanged);
             // 
             // removeSedziaSiat
             // 
-            this.removeSedziaSiat.Location = new System.Drawing.Point(181, 338);
+            this.removeSedziaSiat.Location = new System.Drawing.Point(137, 335);
             this.removeSedziaSiat.Name = "removeSedziaSiat";
             this.removeSedziaSiat.Size = new System.Drawing.Size(57, 23);
             this.removeSedziaSiat.TabIndex = 23;
@@ -439,7 +463,7 @@
             // 
             // addSedziaSiat
             // 
-            this.addSedziaSiat.Location = new System.Drawing.Point(47, 338);
+            this.addSedziaSiat.Location = new System.Drawing.Point(3, 335);
             this.addSedziaSiat.Name = "addSedziaSiat";
             this.addSedziaSiat.Size = new System.Drawing.Size(61, 23);
             this.addSedziaSiat.TabIndex = 22;
@@ -450,53 +474,59 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(441, 13);
+            this.label4.Location = new System.Drawing.Point(397, 10);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(114, 13);
             this.label4.TabIndex = 11;
             this.label4.Text = "Sedziowie Dwa Ognie:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // listSedziowieOgnie
             // 
             this.listSedziowieOgnie.FormattingEnabled = true;
-            this.listSedziowieOgnie.Location = new System.Drawing.Point(441, 29);
+            this.listSedziowieOgnie.Location = new System.Drawing.Point(397, 26);
             this.listSedziowieOgnie.Name = "listSedziowieOgnie";
             this.listSedziowieOgnie.Size = new System.Drawing.Size(191, 303);
             this.listSedziowieOgnie.TabIndex = 10;
+            this.listSedziowieOgnie.SelectedIndexChanged += new System.EventHandler(this.listSedziowieOgnie_SelectedIndexChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(244, 13);
+            this.label5.Location = new System.Drawing.Point(200, 10);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(139, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Sedziowie przeciaganie liny:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // listSedziowieLina
             // 
             this.listSedziowieLina.FormattingEnabled = true;
-            this.listSedziowieLina.Location = new System.Drawing.Point(244, 29);
+            this.listSedziowieLina.Location = new System.Drawing.Point(200, 26);
             this.listSedziowieLina.Name = "listSedziowieLina";
             this.listSedziowieLina.Size = new System.Drawing.Size(191, 303);
             this.listSedziowieLina.TabIndex = 8;
+            this.listSedziowieLina.SelectedIndexChanged += new System.EventHandler(this.listSedziowieLina_SelectedIndexChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(47, 13);
+            this.label6.Location = new System.Drawing.Point(3, 10);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(151, 13);
             this.label6.TabIndex = 7;
             this.label6.Text = "Sedziowie siatkowka plazowa:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // listSedziowieSiatkowka
             // 
             this.listSedziowieSiatkowka.FormattingEnabled = true;
-            this.listSedziowieSiatkowka.Location = new System.Drawing.Point(47, 29);
+            this.listSedziowieSiatkowka.Location = new System.Drawing.Point(3, 26);
             this.listSedziowieSiatkowka.Name = "listSedziowieSiatkowka";
             this.listSedziowieSiatkowka.Size = new System.Drawing.Size(191, 303);
             this.listSedziowieSiatkowka.TabIndex = 6;
+            this.listSedziowieSiatkowka.SelectedIndexChanged += new System.EventHandler(this.listSedziowieSiatkowka_SelectedIndexChanged);
             // 
             // tabPage3
             // 
@@ -539,6 +569,15 @@
             this.tabPage4.Text = "Siatkowka";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // finalySiatkaResults
+            // 
+            this.finalySiatkaResults.Enabled = false;
+            this.finalySiatkaResults.Location = new System.Drawing.Point(401, 58);
+            this.finalySiatkaResults.Multiline = true;
+            this.finalySiatkaResults.Name = "finalySiatkaResults";
+            this.finalySiatkaResults.Size = new System.Drawing.Size(263, 234);
+            this.finalySiatkaResults.TabIndex = 7;
+            // 
             // startSiatkowkaFinal
             // 
             this.startSiatkowkaFinal.Enabled = false;
@@ -578,7 +617,6 @@
             this.label8.Size = new System.Drawing.Size(108, 13);
             this.label8.TabIndex = 3;
             this.label8.Text = "Tabela (wyzej - lepiej)";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // teamListSiatkowka
             // 
@@ -618,6 +656,14 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.finalyLinaResults);
+            this.tabPage6.Controls.Add(this.startLinaFinal);
+            this.tabPage6.Controls.Add(this.wynikBoxLina);
+            this.tabPage6.Controls.Add(this.startLina);
+            this.tabPage6.Controls.Add(this.label9);
+            this.tabPage6.Controls.Add(this.teamListLina);
+            this.tabPage6.Controls.Add(this.label10);
+            this.tabPage6.Controls.Add(this.historyTeamLina);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
@@ -626,14 +672,81 @@
             this.tabPage6.Text = "Przeciaganie Liny";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // finalySiatkaResults
+            // finalyLinaResults
             // 
-            this.finalySiatkaResults.Enabled = false;
-            this.finalySiatkaResults.Location = new System.Drawing.Point(401, 58);
-            this.finalySiatkaResults.Multiline = true;
-            this.finalySiatkaResults.Name = "finalySiatkaResults";
-            this.finalySiatkaResults.Size = new System.Drawing.Size(263, 234);
-            this.finalySiatkaResults.TabIndex = 7;
+            this.finalyLinaResults.Enabled = false;
+            this.finalyLinaResults.Location = new System.Drawing.Point(401, 58);
+            this.finalyLinaResults.Multiline = true;
+            this.finalyLinaResults.Name = "finalyLinaResults";
+            this.finalyLinaResults.Size = new System.Drawing.Size(263, 234);
+            this.finalyLinaResults.TabIndex = 15;
+            // 
+            // startLinaFinal
+            // 
+            this.startLinaFinal.Cursor = System.Windows.Forms.Cursors.Default;
+            this.startLinaFinal.Enabled = false;
+            this.startLinaFinal.Location = new System.Drawing.Point(400, 28);
+            this.startLinaFinal.Name = "startLinaFinal";
+            this.startLinaFinal.Size = new System.Drawing.Size(75, 23);
+            this.startLinaFinal.TabIndex = 14;
+            this.startLinaFinal.Text = "Finał";
+            this.startLinaFinal.UseVisualStyleBackColor = true;
+            this.startLinaFinal.Click += new System.EventHandler(this.startLinaFinal_Click);
+            // 
+            // wynikBoxLina
+            // 
+            this.wynikBoxLina.Enabled = false;
+            this.wynikBoxLina.Location = new System.Drawing.Point(123, 298);
+            this.wynikBoxLina.Multiline = true;
+            this.wynikBoxLina.Name = "wynikBoxLina";
+            this.wynikBoxLina.Size = new System.Drawing.Size(271, 49);
+            this.wynikBoxLina.TabIndex = 13;
+            // 
+            // startLina
+            // 
+            this.startLina.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.startLina.Location = new System.Drawing.Point(6, 298);
+            this.startLina.Name = "startLina";
+            this.startLina.Size = new System.Drawing.Size(111, 49);
+            this.startLina.TabIndex = 12;
+            this.startLina.Text = "START";
+            this.startLina.UseVisualStyleBackColor = true;
+            this.startLina.Click += new System.EventHandler(this.startLina_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 12);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(108, 13);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "Tabela (wyzej - lepiej)";
+            // 
+            // teamListLina
+            // 
+            this.teamListLina.FormattingEnabled = true;
+            this.teamListLina.Location = new System.Drawing.Point(6, 28);
+            this.teamListLina.Name = "teamListLina";
+            this.teamListLina.Size = new System.Drawing.Size(183, 264);
+            this.teamListLina.TabIndex = 10;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(208, 12);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(42, 13);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Historia";
+            // 
+            // historyTeamLina
+            // 
+            this.historyTeamLina.FormattingEnabled = true;
+            this.historyTeamLina.Location = new System.Drawing.Point(211, 28);
+            this.historyTeamLina.Name = "historyTeamLina";
+            this.historyTeamLina.Size = new System.Drawing.Size(183, 264);
+            this.historyTeamLina.TabIndex = 8;
+            this.historyTeamLina.SelectedIndexChanged += new System.EventHandler(this.historyTeamLina_SelectedIndexChanged);
             // 
             // Form1
             // 
@@ -655,6 +768,8 @@
             this.tabControl2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -714,6 +829,15 @@
         private System.Windows.Forms.TextBox wynikBox;
         private System.Windows.Forms.Button startSiatkowkaFinal;
         private System.Windows.Forms.TextBox finalySiatkaResults;
+        private System.Windows.Forms.TextBox finalyLinaResults;
+        private System.Windows.Forms.Button startLinaFinal;
+        private System.Windows.Forms.TextBox wynikBoxLina;
+        private System.Windows.Forms.Button startLina;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ListBox teamListLina;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ListBox historyTeamLina;
+        private System.Windows.Forms.Button button2;
     }
 }
 
