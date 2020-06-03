@@ -28,24 +28,33 @@ namespace Kopakabana
             foreach (var x in mecze)
                 x.Play();
         }
-        public List<Druzyna> Top4()
+        public List<DruzynaLina> Top4()
         {
+
             Dictionary<DruzynaLina, WygraneiPunkty> zlicz = new Dictionary<DruzynaLina, WygraneiPunkty>();
-           
-            foreach(DruzynaLina x in druzyny)
+            
+            foreach(DruzynaLina y in druzyny)
             {
-                zlicz.Add(x, new WygraneiPunkty());
+                zlicz.Add(y, new WygraneiPunkty());
             }
-            foreach(var x in mecze)
+            foreach(var y in mecze)
             {
-                DruzynaLina zw = (DruzynaLina)x.Zwyciezca;
-                DruzynaLina zp = (DruzynaLina)x.Przegrany;
-                zlicz[zw] = new WygraneiPunkty(zlicz[zw].wygrane + 1, zlicz[zw].punkty + x.PunktyUzyskaneZwyciezcy);
-                zlicz[zp] = new WygraneiPunkty(zlicz[zp].wygrane, zlicz[zp].punkty + x.PunktyUtraconeZwyciezcy);
+                DruzynaLina zw = (DruzynaLina)y.Zwyciezca;
+                DruzynaLina zp = (DruzynaLina)y.Przegrany;
+                zlicz[zw] = new WygraneiPunkty(zlicz[zw].wygrane + 1, zlicz[zw].punkty + y.PunktyUzyskaneZwyciezcy);
+                zlicz[zp] = new WygraneiPunkty(zlicz[zp].wygrane, zlicz[zp].punkty + y.PunktyUtraconeZwyciezcy);
             }
+            var x = zlicz.ToList();
 
+            x.OrderByDescending(a => a.Value.wygrane).ThenByDescending(a => a.Value.punkty);
 
-            return new List<Druzyna>();
+            List<DruzynaLina> odp = new List<DruzynaLina>();
+            odp.Add(x[0].Key);
+            odp.Add(x[1].Key);
+            odp.Add(x[2].Key);
+            odp.Add(x[3].Key);
+
+            return odp;
         }
     }
 }

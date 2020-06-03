@@ -25,10 +25,33 @@ namespace Kopakabana
             foreach (var x in mecze)
                 x.Play();
         }
-        public List<Druzyna> Top4()
+        public List<DruzynaSiatkowka> Top4()
         {
-            
-            return druzyny;
+
+            Dictionary<DruzynaSiatkowka, WygraneiPunkty> zlicz = new Dictionary<DruzynaSiatkowka, WygraneiPunkty>();
+
+            foreach (DruzynaSiatkowka y in druzyny)
+            {
+                zlicz.Add(y, new WygraneiPunkty());
+            }
+            foreach (var y in mecze)
+            {
+                DruzynaSiatkowka zw = (DruzynaSiatkowka)y.Zwyciezca;
+                DruzynaSiatkowka zp = (DruzynaSiatkowka)y.Przegrany;
+                zlicz[zw] = new WygraneiPunkty(zlicz[zw].wygrane + 1, zlicz[zw].punkty + y.PunktyUzyskaneZwyciezcy);
+                zlicz[zp] = new WygraneiPunkty(zlicz[zp].wygrane, zlicz[zp].punkty + y.PunktyUtraconeZwyciezcy);
+            }
+            var x = zlicz.ToList();
+
+            x.OrderByDescending(a => a.Value.wygrane).ThenByDescending(a => a.Value.punkty);
+
+            List<DruzynaSiatkowka> odp = new List<DruzynaSiatkowka>();
+            odp.Add(x[0].Key);
+            odp.Add(x[1].Key);
+            odp.Add(x[2].Key);
+            odp.Add(x[3].Key);
+
+            return odp;
         }
     }
 }
