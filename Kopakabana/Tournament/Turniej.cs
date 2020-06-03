@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kopakabana
 {
-    abstract class Turniej
+    abstract class Turniej<T, M>
     {
         protected struct WygraneiPunkty
         {
@@ -18,8 +18,8 @@ namespace Kopakabana
                 punkty = y;
             }
         }
-        protected List<Mecz> mecze = new List<Mecz>();
-        protected List<Druzyna> druzyny = new List<Druzyna>();
+        public List<M> mecze = new List<M>();
+        protected List<T> druzyny = new List<T>();
         protected List<Sedzia> sedzie = new List<Sedzia>();
 
         public abstract void Start();
