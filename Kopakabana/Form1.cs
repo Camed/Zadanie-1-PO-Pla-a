@@ -464,32 +464,6 @@ namespace Kopakabana
                 }
             }
         }
-
-        private void TextSedziowieOgnie_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextSedziowieLina_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextSedziowieSiatkowka_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listSedziowieOgnie_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void startOgnieTopka_Click(object sender, EventArgs e)
         {
                 if (Listy.SedziowieDwaOgnie.Count < 2) MessageBox.Show($"Zbyt malo sedziow! Dodaj {2 - Listy.SedziowieDwaOgnie.Count} sedziow/ego!");

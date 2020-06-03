@@ -437,7 +437,6 @@
             this.TextSedziowieOgnie.Name = "TextSedziowieOgnie";
             this.TextSedziowieOgnie.Size = new System.Drawing.Size(191, 20);
             this.TextSedziowieOgnie.TabIndex = 26;
-            this.TextSedziowieOgnie.TextChanged += new System.EventHandler(this.TextSedziowieOgnie_TextChanged);
             // 
             // TextSedziowieLina
             // 
@@ -446,7 +445,6 @@
             this.TextSedziowieLina.Name = "TextSedziowieLina";
             this.TextSedziowieLina.Size = new System.Drawing.Size(191, 20);
             this.TextSedziowieLina.TabIndex = 25;
-            this.TextSedziowieLina.TextChanged += new System.EventHandler(this.TextSedziowieLina_TextChanged);
             // 
             // TextSedziowieSiatkowka
             // 
@@ -455,7 +453,6 @@
             this.TextSedziowieSiatkowka.Name = "TextSedziowieSiatkowka";
             this.TextSedziowieSiatkowka.Size = new System.Drawing.Size(191, 20);
             this.TextSedziowieSiatkowka.TabIndex = 24;
-            this.TextSedziowieSiatkowka.TextChanged += new System.EventHandler(this.TextSedziowieSiatkowka_TextChanged);
             // 
             // removeSedziaSiat
             // 
@@ -485,7 +482,6 @@
             this.label4.Size = new System.Drawing.Size(114, 13);
             this.label4.TabIndex = 11;
             this.label4.Text = "Sedziowie Dwa Ognie:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // listSedziowieOgnie
             // 
@@ -494,7 +490,6 @@
             this.listSedziowieOgnie.Name = "listSedziowieOgnie";
             this.listSedziowieOgnie.Size = new System.Drawing.Size(191, 303);
             this.listSedziowieOgnie.TabIndex = 10;
-            this.listSedziowieOgnie.SelectedIndexChanged += new System.EventHandler(this.listSedziowieOgnie_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -504,7 +499,6 @@
             this.label5.Size = new System.Drawing.Size(139, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Sedziowie przeciaganie liny:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // listSedziowieLina
             // 
@@ -513,7 +507,6 @@
             this.listSedziowieLina.Name = "listSedziowieLina";
             this.listSedziowieLina.Size = new System.Drawing.Size(191, 303);
             this.listSedziowieLina.TabIndex = 8;
-            this.listSedziowieLina.SelectedIndexChanged += new System.EventHandler(this.listSedziowieLina_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -523,7 +516,6 @@
             this.label6.Size = new System.Drawing.Size(151, 13);
             this.label6.TabIndex = 7;
             this.label6.Text = "Sedziowie siatkowka plazowa:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // listSedziowieSiatkowka
             // 
@@ -532,7 +524,6 @@
             this.listSedziowieSiatkowka.Name = "listSedziowieSiatkowka";
             this.listSedziowieSiatkowka.Size = new System.Drawing.Size(191, 303);
             this.listSedziowieSiatkowka.TabIndex = 6;
-            this.listSedziowieSiatkowka.SelectedIndexChanged += new System.EventHandler(this.listSedziowieSiatkowka_SelectedIndexChanged);
             // 
             // tabPage3
             // 
