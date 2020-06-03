@@ -17,7 +17,7 @@ namespace Kopakabana
         {
             for (int i = 0; i < druzyny.Count(); i++)
             {
-                for (int j = i; j < druzyny.Count(); j++)
+                for (int j = i + 1; j < druzyny.Count(); j++)
                 {
                     mecze.Add(new MeczDwaOgnie((DruzynaDwaOgnie)druzyny[i], (DruzynaDwaOgnie)druzyny[j], sedzie[0]));
                 }

@@ -2,16 +2,28 @@
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Kopakabana
 {
     public static class FileManagement
     {
-        private const string sedziowiePath = "/data/sedziowie.txt";                // 1 sędzia - 1 linia, każda linia wygląda tak: SType Imie Nazwisko
-        private const string siatkowkaPath = "/data/siatkowka.txt";                // nazwy druzyn siatkowki
-        private const string dwaOgniePath = "/data/dwaognie.txt";                  // nazwy druzyn w dwa ognie
-        private const string linaPath = "/data/lina.txt";                          // nazwy druzyn w przeciaganie liny
+        private const string sedziowiePath = "data\\sedziowie.txt";                // 1 sędzia - 1 linia, każda linia wygląda tak: SType Imie Nazwisko
+        private const string siatkowkaPath = "data\\siatkowka.txt";                // nazwy druzyn siatkowki
+        private const string dwaOgniePath = "data\\dwaognie.txt";                  // nazwy druzyn w dwa ognie
+        private const string linaPath = "data\\lina.txt";                          // nazwy druzyn w przeciaganie liny
+        
+        /// <summary>
+        /// Zwraca true, jeśli pliki istnieją. W przeciwnym wypadku false.
+        /// </summary>
+        /// <returns></returns>
+        private static bool filesExist()
+        {
+            return File.Exists(sedziowiePath) && File.Exists(siatkowkaPath) && File.Exists(dwaOgniePath) && File.Exists(linaPath);
+        }
+
 
         /// <summary>
         /// Wczytywanie sedziow z plikow
@@ -192,6 +204,35 @@ namespace Kopakabana
             }
         }
 
+        /// <summary>
+        /// Sprawdza, czy folder i pliki z danymi istnieją. Jeśli nie, tworzy je. Następnie "ładuje" ich zawartość.
+        /// </summary>
+        public static void Start()
+        {
+            if (!Directory.Exists("data"))
+            {
+                Directory.CreateDirectory("data");
+            }
+            if (!filesExist())
+            {
+                FileStream fs = File.Create(sedziowiePath);
+                fs.Close(); fs.Dispose();
+
+                fs = File.Create(linaPath);
+                fs.Close(); fs.Dispose();
+
+                fs = File.Create(siatkowkaPath);
+                fs.Close(); fs.Dispose();
+
+                fs = File.Create(dwaOgniePath);
+                fs.Close(); fs.Dispose();
+
+                fs = File.Create(linaPath);
+                fs.Close(); fs.Dispose();
+            }
+            Thread.Sleep(1000);
+            LoadFromFiles();
+        }
 
         /// <summary>
         /// Zapisywanie wszystkich danych

@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Kopakabana
 {
+
+    /// <summary>
+    /// Dane, z których nasz program korzysta. Wczytywane przez klasę "FileManagement".
+    /// </summary>
     public static class Listy
     {
         public static List<DruzynaSiatkowka> DruzynySiatkowki   = new List<DruzynaSiatkowka>();

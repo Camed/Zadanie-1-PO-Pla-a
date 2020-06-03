@@ -15,7 +15,7 @@ namespace Kopakabana
         }
         public virtual void PokazDruzyne()
         {
-            MessageBox.Show("Oto druzyna!");
+            MessageBox.Show($"Oto druzyna {Nazwa}!");
         }
     }
 
@@ -23,7 +23,6 @@ namespace Kopakabana
     /// <summary>
     /// Klasa dziedzicząca po klasie Druzyna, odpowiada druzynie siatkowki
     /// </summary>
-
 
     public class DruzynaSiatkowka : Druzyna
     {
@@ -33,7 +32,7 @@ namespace Kopakabana
         }
         public override void PokazDruzyne()
         {
-            MessageBox.Show("Oto druzyna siatkowki!");
+            MessageBox.Show($"Oto druzyna siatkowki o nazwie {Nazwa}!");
         }
     }
 
@@ -49,7 +48,7 @@ namespace Kopakabana
         }
         public override void PokazDruzyne()
         {
-            MessageBox.Show("Oto druzyna w przeciagnie liny!");
+            MessageBox.Show($"Oto druzyna w przeciagnie liny o nazwie {Nazwa}!");
         }
     }
 
@@ -64,7 +63,7 @@ namespace Kopakabana
         }
         public override void PokazDruzyne()
         {
-            MessageBox.Show("Oto druzyna w dwa ognie!");
+            MessageBox.Show($"Oto druzyna w dwa ognie o nazwie {Nazwa}!");
         }
     }
 }
