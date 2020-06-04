@@ -231,7 +231,7 @@ namespace Kopakabana
         private void addSedziaSiat_Click(object sender, EventArgs e)
         {
             string text = TextSedziowieSiatkowka.Text;
-            if (text.Length == 0) MessageBox.Show("Wprowadz imie i nazwisko sedziego!");
+            if (text.Split().Length!=2) MessageBox.Show("Wprowadz imie i nazwisko sedziego!");
             else
             {
                 string name = text.Split()[0];
@@ -246,7 +246,7 @@ namespace Kopakabana
         private void addSedziaLina_Click(object sender, EventArgs e)
         {
             string text = TextSedziowieLina.Text;
-            if (text.Length == 0) MessageBox.Show("Wprowadz imie i nazwisko sedziego!");
+            if (text.Split().Length!=2) MessageBox.Show("Wprowadz imie i nazwisko sedziego!");
             else
             {
                 string name = text.Split()[0];
@@ -261,7 +261,7 @@ namespace Kopakabana
         private void addSedziaOgnie_Click(object sender, EventArgs e)
         {
             string text = TextSedziowieOgnie.Text;
-            if (text.Length == 0) MessageBox.Show("Wprowadz imie i nazwisko sedziego!");
+            if (text.Split().Length!=2) MessageBox.Show("Wprowadz imie i nazwisko sedziego!");
             else
             {
                 string name = text.Split()[0];
