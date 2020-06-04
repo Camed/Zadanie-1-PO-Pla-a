@@ -483,13 +483,8 @@ namespace Kopakabana
                 tog.Start();
                 foreach (var x in tog.mecze)
                 {
-                    startOgnieFinal.Enabled = true;
-                    tog = new TurniejOgnie(Listy.DruzynyDwaOgnie, Listy.SedziowieDwaOgnie);
-                    tog.Start();
-                    foreach (var x in tog.mecze)
-                    {
-                        historyTeamDwaOgnie.Items.Add($"{x.Druzyna1.Nazwa}-{x.Druzyna2.Nazwa}");
-                    }
+                    historyTeamDwaOgnie.Items.Add($"{x.Druzyna1.Nazwa}-{x.Druzyna2.Nazwa}");
+                }
 
                 foreach (var x in tog.Top4())
                 {
