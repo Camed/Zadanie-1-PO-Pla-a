@@ -404,6 +404,8 @@ namespace Kopakabana
 
         private void button1_Click(object sender, EventArgs e)
         {
+            historyTeamSiatkowka.Items.Clear();
+            teamListSiatkowka.Items.Clear();
             if (Listy.SedziowieSiatkowki.Count < 6)
                 MessageBox.Show($"Zbyt malo sedziow! Dodaj {6 - Listy.SedziowieSiatkowki.Count} sedziow/ego!");
             else if (Listy.DruzynySiatkowki.Count < 4)
@@ -450,6 +452,8 @@ namespace Kopakabana
         }
         private void startLina_Click(object sender, EventArgs e)
         {
+            teamListLina.Items.Clear();
+            historyTeamLina.Items.Clear();
             if (Listy.SedziowieLina.Count < 2)
                 MessageBox.Show($"Zbyt malo sedziow! Dodaj {2 - Listy.SedziowieLina.Count} sedziow/ego!");
             else if (Listy.DruzynyLina.Count < 4)
@@ -472,6 +476,8 @@ namespace Kopakabana
         }
         private void startOgnieTopka_Click(object sender, EventArgs e)
         {
+            teamListDwaOgnie.Items.Clear();
+            historyTeamDwaOgnie.Items.Clear();
             if (Listy.SedziowieDwaOgnie.Count < 2)
                 MessageBox.Show($"Zbyt malo sedziow! Dodaj {2 - Listy.SedziowieDwaOgnie.Count} sedziow/ego!");
             else if (Listy.DruzynyDwaOgnie.Count < 4)
