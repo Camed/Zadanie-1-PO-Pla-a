@@ -404,18 +404,21 @@ namespace Kopakabana
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (Listy.SedziowieSiatkowki.Count < 6) MessageBox.Show($"Zbyt malo sedziow! Dodaj {6 - Listy.SedziowieSiatkowki.Count} sedziow/ego!");
+            if (Listy.SedziowieSiatkowki.Count < 6)
+                MessageBox.Show($"Zbyt malo sedziow! Dodaj {6 - Listy.SedziowieSiatkowki.Count} sedziow/ego!");
+            else if (Listy.DruzynySiatkowki.Count < 4)
+                MessageBox.Show($"Zbyt malo druzyn! Dodaj {4 - Listy.DruzynySiatkowki.Count} druzyn!");
             else
             {
                 startSiatkowkaFinal.Enabled = true;
                 ts = new TurniejSiatkowka(Listy.DruzynySiatkowki, Listy.SedziowieSiatkowki);
                 ts.Start();
-                foreach(var x in ts.mecze)
+                foreach (var x in ts.mecze)
                 {
                     historyTeamSiatkowka.Items.Add($"{x.Druzyna1.Nazwa}-{x.Druzyna2.Nazwa}");
                 }
 
-                foreach(var x in ts.Top4())
+                foreach (var x in ts.Top4())
                 {
                     teamListSiatkowka.Items.Add(x.Nazwa);
                 }
@@ -447,7 +450,10 @@ namespace Kopakabana
         }
         private void startLina_Click(object sender, EventArgs e)
         {
-            if (Listy.SedziowieLina.Count < 2) MessageBox.Show($"Zbyt malo sedziow! Dodaj {2 - Listy.SedziowieLina.Count} sedziow/ego!");
+            if (Listy.SedziowieLina.Count < 2)
+                MessageBox.Show($"Zbyt malo sedziow! Dodaj {2 - Listy.SedziowieLina.Count} sedziow/ego!");
+            else if (Listy.DruzynyLina.Count < 4)
+                MessageBox.Show($"Zbyt malo druzyn! Dodaj {4 - Listy.DruzynyLina.Count} druzyn!");
             else
             {
                 startLinaFinal.Enabled = true;
@@ -466,8 +472,16 @@ namespace Kopakabana
         }
         private void startOgnieTopka_Click(object sender, EventArgs e)
         {
-                if (Listy.SedziowieDwaOgnie.Count < 2) MessageBox.Show($"Zbyt malo sedziow! Dodaj {2 - Listy.SedziowieDwaOgnie.Count} sedziow/ego!");
-                else
+            if (Listy.SedziowieDwaOgnie.Count < 2)
+                MessageBox.Show($"Zbyt malo sedziow! Dodaj {2 - Listy.SedziowieDwaOgnie.Count} sedziow/ego!");
+            else if (Listy.DruzynyDwaOgnie.Count < 4)
+                MessageBox.Show($"Zbyt malo druzyn! Dodaj {4 - Listy.DruzynyDwaOgnie.Count} druzyn!");
+            else
+            {
+                startOgnieFinal.Enabled = true;
+                tog = new TurniejOgnie(Listy.DruzynyDwaOgnie, Listy.SedziowieDwaOgnie);
+                tog.Start();
+                foreach (var x in tog.mecze)
                 {
                     startOgnieFinal.Enabled = true;
                     tog = new TurniejOgnie(Listy.DruzynyDwaOgnie, Listy.SedziowieDwaOgnie);
@@ -477,11 +491,11 @@ namespace Kopakabana
                         historyTeamDwaOgnie.Items.Add($"{x.Druzyna1.Nazwa}-{x.Druzyna2.Nazwa}");
                     }
 
-                    foreach (var x in tog.Top4())
-                    {
-                        teamListDwaOgnie.Items.Add(x.Nazwa);
-                    }
+                foreach (var x in tog.Top4())
+                {
+                    teamListDwaOgnie.Items.Add(x.Nazwa);
                 }
+            }
         }
 
         private void historyTeamDwaOgnie_SelectedIndexChanged(object sender, EventArgs e)
