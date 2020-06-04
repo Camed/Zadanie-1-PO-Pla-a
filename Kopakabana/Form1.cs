@@ -412,7 +412,7 @@ namespace Kopakabana
                 ts.Start();
                 foreach(var x in ts.mecze)
                 {
-                    historyTeamSiatkowka.Items.Add($"{x.Druzyna1.Nazwa}|{x.Druzyna2.Nazwa}");
+                    historyTeamSiatkowka.Items.Add($"{x.Druzyna1.Nazwa}-{x.Druzyna2.Nazwa}");
                 }
 
                 foreach(var x in ts.Top4())
@@ -425,8 +425,8 @@ namespace Kopakabana
         private void historyTeamSiatkowka_SelectedIndexChanged(object sender, EventArgs e)
         {
             string match = historyTeamSiatkowka.SelectedItem.ToString();
-            string d1 = match.Split('|')[0];
-            string d2 = match.Split('|')[1];
+            string d1 = match.Split('-')[0];
+            string d2 = match.Split('-')[1];
 
             foreach(var x in ts.mecze)
             {
@@ -455,7 +455,7 @@ namespace Kopakabana
                 tl.Start();
                 foreach (var x in tl.mecze)
                 {
-                    historyTeamLina.Items.Add($"{x.Druzyna1.Nazwa}|{x.Druzyna2.Nazwa}");
+                    historyTeamLina.Items.Add($"{x.Druzyna1.Nazwa}-{x.Druzyna2.Nazwa}");
                 }
 
                 foreach (var x in tl.Top4())
@@ -474,7 +474,7 @@ namespace Kopakabana
                     tog.Start();
                     foreach (var x in tog.mecze)
                     {
-                        historyTeamDwaOgnie.Items.Add($"{x.Druzyna1.Nazwa}|{x.Druzyna2.Nazwa}");
+                        historyTeamDwaOgnie.Items.Add($"{x.Druzyna1.Nazwa}-{x.Druzyna2.Nazwa}");
                     }
 
                     foreach (var x in tog.Top4())
@@ -487,8 +487,8 @@ namespace Kopakabana
         private void historyTeamDwaOgnie_SelectedIndexChanged(object sender, EventArgs e)
         {
             string match = historyTeamDwaOgnie.SelectedItem.ToString();
-            string d1 = match.Split('|')[0];
-            string d2 = match.Split('|')[1];
+            string d1 = match.Split('-')[0];
+            string d2 = match.Split('-')[1];
 
             foreach (var x in tog.mecze)
             {
@@ -513,8 +513,8 @@ namespace Kopakabana
         private void historyTeamLina_SelectedIndexChanged(object sender, EventArgs e)
         {
             string match = historyTeamLina.SelectedItem.ToString();
-            string d1 = match.Split('|')[0];
-            string d2 = match.Split('|')[1];
+            string d1 = match.Split('-')[0];
+            string d2 = match.Split('-')[1];
 
             foreach (var x in tl.mecze)
             {
