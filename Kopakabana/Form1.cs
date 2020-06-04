@@ -406,6 +406,7 @@ namespace Kopakabana
         {
             historyTeamSiatkowka.Items.Clear();
             teamListSiatkowka.Items.Clear();
+            finalySiatkaResults.Clear();
             if (Listy.SedziowieSiatkowki.Count < 6)
                 MessageBox.Show($"Zbyt malo sedziow! Dodaj {6 - Listy.SedziowieSiatkowki.Count} sedziow/ego!");
             else if (Listy.DruzynySiatkowki.Count < 4)
@@ -454,6 +455,7 @@ namespace Kopakabana
         {
             teamListLina.Items.Clear();
             historyTeamLina.Items.Clear();
+            finalyLinaResults.Clear();
             if (Listy.SedziowieLina.Count < 2)
                 MessageBox.Show($"Zbyt malo sedziow! Dodaj {2 - Listy.SedziowieLina.Count} sedziow/ego!");
             else if (Listy.DruzynyLina.Count < 4)
@@ -478,6 +480,7 @@ namespace Kopakabana
         {
             teamListDwaOgnie.Items.Clear();
             historyTeamDwaOgnie.Items.Clear();
+            finalyOgnieResults.Clear();
             if (Listy.SedziowieDwaOgnie.Count < 2)
                 MessageBox.Show($"Zbyt malo sedziow! Dodaj {2 - Listy.SedziowieDwaOgnie.Count} sedziow/ego!");
             else if (Listy.DruzynyDwaOgnie.Count < 4)
